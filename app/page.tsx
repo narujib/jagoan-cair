@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Navbar from "./components/sections/Navbar";
 import Hero from "./components/sections/Hero";
 import SimulatorSection from "./components/sections/SimulatorSection";
@@ -19,7 +20,9 @@ export default function Home() {
         <SimulatorSection />
         <WhyUs />
         <CollateralTabs />
-        <FormSection />
+        <Suspense fallback={null}>
+          <FormSection />
+        </Suspense>
         <ProcessFAQ />
         <Testimonials />
       </div>

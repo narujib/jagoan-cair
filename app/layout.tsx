@@ -15,7 +15,8 @@ const body = Plus_Jakarta_Sans({
 });
 
 const siteName = "Jagoan Cair";
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://jagoancair.com";
+const ogImage = `${baseUrl}/og-image.jpg`;
 
 export const metadata: Metadata = {
   title: {
@@ -28,19 +29,27 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Pinjaman Jaminan BPKB Cair 1 Jam - Jagoan Cair",
     description:
-    "Solusi dana tunai premium dengan jaminan BPKB. Proses cepat, bunga kompetitif, aset aman.",
+      "Solusi dana tunai premium dengan jaminan BPKB. Proses cepat, bunga kompetitif, aset aman.",
     url: baseUrl,
     siteName,
     locale: "id_ID",
-    type: "website"
+    type: "website",
+    images: [{ url: ogImage, width: 1200, height: 630, alt: siteName }]
   },
   alternates: {
     canonical: baseUrl
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pinjaman Jaminan BPKB Cair 1 Jam - Jagoan Cair",
+    description:
+      "Solusi dana tunai premium dengan jaminan BPKB. Proses cepat, bunga kompetitif, aset aman.",
+    images: [ogImage]
   }
 };
 
 export const viewport: Viewport = {
-  themeColor: "#124037",
+  themeColor: "#16a34a",
   initialScale: 1,
   maximumScale: 1
 };

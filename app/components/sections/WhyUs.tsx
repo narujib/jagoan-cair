@@ -42,9 +42,9 @@ export default function WhyUs() {
   return (
     <section id="why-us" className="space-y-6">
       <div className="space-y-2">
-        <p className="text-sm font-semibold uppercase tracking-wide text-emerald-800">Keunggulan</p>
-        <h2 className="font-heading text-3xl text-emerald-900">Kenapa Memilih Jagoan Cair</h2>
-        <p className="text-slate-600">Transparan, cepat, dan memprioritaskan keamanan aset Anda.</p>
+        <p className="text-sm font-semibold uppercase tracking-wide text-primary">Keunggulan</p>
+        <h2 className="font-heading text-3xl text-foreground">Kenapa Memilih Jagoan Cair</h2>
+        <p className="text-muted-foreground">Transparan, cepat, dan memprioritaskan keamanan aset Anda.</p>
       </div>
 
       <div className="grid gap-5 md:grid-cols-3">
@@ -59,11 +59,11 @@ export default function WhyUs() {
               transition={{ duration: 0.5, delay: index * 0.05 }}
             >
               <Card className="h-full p-5 transition hover:-translate-y-1 hover:shadow-xl">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-900/10 text-emerald-800">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                   <Icon />
                 </div>
-                <h3 className="mt-4 text-lg font-semibold text-emerald-900">{feature.title}</h3>
-                <p className="mt-2 text-sm text-slate-600">{feature.desc}</p>
+                <h3 className="mt-4 text-lg font-semibold text-foreground">{feature.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{feature.desc}</p>
               </Card>
             </motion.div>
           );

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
@@ -19,7 +19,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: reduceMotion ? 0 : 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-2 text-xs font-semibold text-emerald-900 shadow-sm"
+            className="inline-flex items-center gap-2 rounded-full bg-accent px-3 py-2 text-xs font-semibold text-primary shadow-sm"
           >
             <Sparkles size={14} /> Premium Lending Service
           </motion.div>
@@ -28,7 +28,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: reduceMotion ? 0 : 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.05 }}
-            className="font-heading text-4xl leading-tight text-emerald-900 sm:text-5xl"
+            className="font-heading text-4xl leading-tight text-foreground sm:text-5xl"
           >
             Solusi Dana Tunai Premium.
             <br />
@@ -39,10 +39,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: reduceMotion ? 0 : 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="max-w-xl text-lg text-slate-700"
+            className="max-w-xl text-lg text-muted-foreground"
           >
-            Pencairan hingga 90% nilai taksiran. Tanpa BI checking, bunga kompetitif, dan proses
-            verifikasi kurang dari 1 jam.
+            Pencairan hingga 90% nilai taksiran. Tanpa BI checking, bunga
+            kompetitif, dan proses verifikasi kurang dari 1 jam.
           </motion.p>
 
           <motion.div
@@ -57,14 +57,16 @@ export default function Hero() {
             <Button size="lg" variant="ghost" asChild href="#simulator">
               Lihat Simulasi
             </Button>
-            <p className="text-sm text-slate-600">Jam operasional 08.00 - 21.00 WIB</p>
+            <p className="text-sm text-muted-foreground">
+              Jam operasional 08.00 - 21.00 WIB
+            </p>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: reduceMotion ? 0 : 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-wrap items-center gap-4 text-sm font-semibold text-emerald-900"
+            className="flex flex-wrap items-center gap-4 text-sm font-semibold text-primary"
           >
             <span className="inline-flex items-center gap-2">
               <ShieldCheck size={16} /> Terdaftar & diawasi
@@ -76,13 +78,17 @@ export default function Hero() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: reduceMotion ? 0 : 30, scale: reduceMotion ? 1 : 0.96 }}
+          initial={{
+            opacity: 0,
+            y: reduceMotion ? 0 : 30,
+            scale: reduceMotion ? 1 : 0.96,
+          }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.1 }}
           className="relative"
         >
           <div className="gradient-card relative overflow-hidden rounded-3xl p-6 shadow-soft">
-            <div className="absolute inset-0 bg-emerald-900/5" />
+            <div className="absolute inset-0 bg-primary/8" />
             <div className="relative aspect-square overflow-hidden rounded-2xl">
               <Image
                 src={heroImage}
@@ -93,10 +99,16 @@ export default function Hero() {
                 sizes="(min-width: 1024px) 480px, 100vw"
               />
             </div>
-            <div className="relative mt-4 grid grid-cols-3 gap-2 text-xs font-semibold text-emerald-900">
-              <div className="rounded-xl bg-white/70 px-3 py-2 text-center shadow-sm">OJK</div>
-              <div className="rounded-xl bg-white/70 px-3 py-2 text-center shadow-sm">APPI</div>
-              <div className="rounded-xl bg-white/70 px-3 py-2 text-center shadow-sm">ISO 27001</div>
+            <div className="relative mt-4 grid grid-cols-3 gap-2 text-xs font-semibold text-foreground">
+              <div className="rounded-xl bg-card/80 px-3 py-2 text-center shadow-sm">
+                OJK
+              </div>
+              <div className="rounded-xl bg-card/80 px-3 py-2 text-center shadow-sm">
+                APPI
+              </div>
+              <div className="rounded-xl bg-card/80 px-3 py-2 text-center shadow-sm">
+                ISO 27001
+              </div>
             </div>
           </div>
         </motion.div>

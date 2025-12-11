@@ -27,9 +27,9 @@ export default function Testimonials() {
   return (
     <section className="space-y-6">
       <div className="space-y-2">
-        <p className="text-sm font-semibold uppercase tracking-wide text-emerald-800">Testimoni</p>
-        <h2 className="font-heading text-3xl text-emerald-900">Dipercaya Ratusan Nasabah</h2>
-        <p className="text-slate-600">Cuplikan pengalaman mereka yang sudah cair bersama kami.</p>
+        <p className="text-sm font-semibold uppercase tracking-wide text-primary">Testimoni</p>
+        <h2 className="font-heading text-3xl text-foreground">Dipercaya Ratusan Nasabah</h2>
+        <p className="text-muted-foreground">Cuplikan pengalaman mereka yang sudah cair bersama kami.</p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-3">
@@ -42,13 +42,13 @@ export default function Testimonials() {
             transition={{ duration: 0.5, delay: idx * 0.05 }}
           >
             <Card className="h-full p-5">
-              <div className="flex gap-1 text-gold-500">
+              <div className="flex gap-1 text-amber-400">
                 {Array.from({ length: item.rating }).map((_, i) => (
                   <Star key={i} size={16} fill="currentColor" />
                 ))}
               </div>
-              <p className="mt-3 text-sm text-slate-700">{item.text}</p>
-              <p className="mt-4 text-sm font-semibold text-emerald-900">{item.name}</p>
+              <p className="mt-3 text-sm text-muted-foreground">{item.text}</p>
+              <p className="mt-4 text-sm font-semibold text-foreground">{item.name}</p>
             </Card>
           </motion.div>
         ))}

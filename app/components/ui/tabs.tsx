@@ -17,7 +17,7 @@ interface TabsProps {
 
 export function Tabs({ tabs, value, onChange, className }: TabsProps) {
   return (
-    <div className={cn("inline-flex items-center gap-2 rounded-full bg-white/60 p-1 shadow-sm", className)}>
+    <div className={cn("inline-flex items-center gap-2 rounded-full bg-muted/60 p-1 shadow-sm", className)}>
       {tabs.map((tab) => {
         const active = tab.value === value;
         return (
@@ -26,7 +26,7 @@ export function Tabs({ tabs, value, onChange, className }: TabsProps) {
             type="button"
             className={cn(
               "px-4 py-2 rounded-full text-sm font-semibold transition",
-              active ? "bg-emerald-800 text-white shadow" : "text-emerald-900 hover:bg-emerald-900/5"
+              active ? "bg-primary text-primary-foreground shadow" : "text-foreground hover:bg-muted"
             )}
             onClick={() => onChange(tab.value)}
           >

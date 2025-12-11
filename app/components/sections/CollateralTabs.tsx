@@ -31,8 +31,8 @@ export default function CollateralTabs() {
     <section id="agunan" className="space-y-6">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wide text-emerald-800">Jenis Agunan</p>
-          <h2 className="font-heading text-3xl text-emerald-900">Agunan yang Kami Terima</h2>
+          <p className="text-sm font-semibold uppercase tracking-wide text-primary">Jenis Agunan</p>
+          <h2 className="font-heading text-3xl text-foreground">Agunan yang Kami Terima</h2>
         </div>
         <Tabs
           tabs={[
@@ -53,16 +53,16 @@ export default function CollateralTabs() {
       >
         <Card className="p-6">
           <div className="space-y-2">
-            <p className="text-lg font-semibold text-emerald-900">Syarat {activeTab}</p>
-            <ul className="grid gap-2 text-sm text-slate-600 sm:grid-cols-2">
+            <p className="text-lg font-semibold text-foreground">Syarat {activeTab}</p>
+            <ul className="grid gap-2 text-sm text-muted-foreground sm:grid-cols-2">
               {requirements[activeTab].map((item) => (
                 <li key={item} className="flex items-start gap-2">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-emerald-800" />
+                  <span className="mt-1 h-2 w-2 rounded-full bg-primary" />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
-            <p className="text-xs text-slate-500">
+            <p className="text-xs text-muted-foreground">
               *Data lengkap mempercepat verifikasi dan appraisal aset.
             </p>
           </div>

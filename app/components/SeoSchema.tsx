@@ -1,4 +1,4 @@
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://jagoancair.com";
 const waNumber = process.env.NEXT_PUBLIC_WA_NUMBER || "6281234567890";
 
 const lendingSchema = {

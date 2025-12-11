@@ -48,8 +48,8 @@ export default function ProcessFAQ() {
     <section id="faq" className="space-y-8">
       <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr]">
         <div className="space-y-4">
-          <p className="text-sm font-semibold uppercase tracking-wide text-emerald-800">Proses</p>
-          <h2 className="font-heading text-3xl text-emerald-900">Langkah Pencairan</h2>
+          <p className="text-sm font-semibold uppercase tracking-wide text-primary">Proses</p>
+          <h2 className="font-heading text-3xl text-foreground">Langkah Pencairan</h2>
           <div className="grid gap-4 sm:grid-cols-3">
             {steps.map((step, idx) => (
               <motion.div
@@ -58,12 +58,12 @@ export default function ProcessFAQ() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.05 }}
-                className="rounded-2xl bg-white p-4 shadow-soft"
+                className="rounded-2xl bg-card p-4 shadow-soft border border-border"
               >
-                <div className="text-xs font-semibold text-emerald-800">Langkah {idx + 1}</div>
-                <h3 className="mt-2 text-lg font-semibold text-emerald-900">{step.title}</h3>
-                <p className="text-sm text-slate-600">{step.desc}</p>
-                <p className="mt-2 text-xs text-emerald-700">{step.time}</p>
+                <div className="text-xs font-semibold text-primary">Langkah {idx + 1}</div>
+                <h3 className="mt-2 text-lg font-semibold text-foreground">{step.title}</h3>
+                <p className="text-sm text-muted-foreground">{step.desc}</p>
+                <p className="mt-2 text-xs text-primary">{step.time}</p>
               </motion.div>
             ))}
           </div>
@@ -73,8 +73,8 @@ export default function ProcessFAQ() {
         </div>
 
         <div className="space-y-4">
-          <p className="text-sm font-semibold uppercase tracking-wide text-emerald-800">FAQ</p>
-          <h3 className="font-heading text-2xl text-emerald-900">Pertanyaan Populer</h3>
+          <p className="text-sm font-semibold uppercase tracking-wide text-primary">FAQ</p>
+          <h3 className="font-heading text-2xl text-foreground">Pertanyaan Populer</h3>
           <div className="space-y-3">
             {faqs.map((faq, idx) => (
               <motion.div
@@ -85,16 +85,16 @@ export default function ProcessFAQ() {
                 transition={{ duration: 0.45, delay: idx * 0.04 }}
               >
                 <Card className="p-4">
-                  <p className="font-semibold text-emerald-900">{faq.q}</p>
-                  <p className="mt-1 text-sm text-slate-600">{faq.a}</p>
+                  <p className="font-semibold text-foreground">{faq.q}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{faq.a}</p>
                 </Card>
               </motion.div>
             ))}
           </div>
-          <div className="rounded-2xl bg-emerald-900/5 p-4 text-sm text-emerald-900">
-            Butuh jawaban cepat? <a href="tel:+6281234567890" className="font-semibold underline">Hubungi kami</a>{" "}
+          <div className="rounded-2xl bg-primary/10 p-4 text-sm text-foreground">
+            Butuh jawaban cepat? <a href="tel:+6281234567890" className="font-semibold text-primary underline">Hubungi kami</a>{" "}
             atau klik{" "}
-            <a href="https://wa.me/6281234567890" className="font-semibold underline">
+            <a href="https://wa.me/6281234567890" className="font-semibold text-primary underline">
               WhatsApp
             </a>
             .

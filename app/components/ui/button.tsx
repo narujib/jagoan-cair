@@ -5,16 +5,16 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 rounded-full text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed",
+  "inline-flex items-center justify-center gap-2 rounded-full text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background disabled:opacity-60 disabled:cursor-not-allowed",
   {
     variants: {
       variant: {
         primary:
-          "bg-emerald-800 text-white hover:bg-emerald-900 focus-visible:ring-emerald-800 ring-offset-white shadow-lg shadow-emerald-800/15",
+          "bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/20",
         secondary:
-          "bg-gold-500 text-emerald-900 hover:bg-gold-400 focus-visible:ring-gold-500 ring-offset-white shadow-lg shadow-gold-500/25",
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border shadow-sm",
         ghost:
-          "bg-transparent text-emerald-900 hover:bg-emerald-900/5 border border-emerald-900/10 focus-visible:ring-emerald-800 ring-offset-white"
+          "bg-transparent text-foreground hover:bg-accent/60 border border-border/70"
       },
       size: {
         sm: "px-3 py-2 text-xs",
@@ -29,27 +29,41 @@ const buttonVariants = cva(
   }
 );
 
-export interface ButtonProps
-  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "type">,
-    React.AnchorHTMLAttributes<HTMLAnchorElement>,
-    VariantProps<typeof buttonVariants> {
-  asChild?: boolean;
+type ButtonElementProps = Omit<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  "type"
+> & {
+  asChild?: false;
   type?: "button" | "submit" | "reset";
-}
+};
+
+type AnchorElementProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+  asChild: true;
+};
+
+export type ButtonProps = (ButtonElementProps | AnchorElementProps) &
+  VariantProps<typeof buttonVariants>;
 
 export const Button = React.forwardRef<HTMLElement, ButtonProps>(
-  ({ className, variant, size, asChild, type, ...props }, ref) => {
-    const Component = asChild ? "a" : "button";
-    const componentProps =
-      Component === "button"
-        ? { type: type || "button", ...props }
-        : { ...props };
+  ({ className, variant, size, asChild, ...props }, ref) => {
+    if (asChild) {
+      const anchorProps = props as AnchorElementProps;
+      return (
+        <a
+          ref={ref as React.Ref<HTMLAnchorElement>}
+          className={cn(buttonVariants({ variant, size }), className)}
+          {...anchorProps}
+        />
+      );
+    }
 
+    const { type = "button", ...buttonProps } = props as ButtonElementProps;
     return (
-      <Component
-        ref={ref as any}
+      <button
+        ref={ref as React.Ref<HTMLButtonElement>}
         className={cn(buttonVariants({ variant, size }), className)}
-        {...(componentProps as any)}
+        type={type}
+        {...buttonProps}
       />
     );
   }

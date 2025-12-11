@@ -1,14 +1,14 @@
 'use client';
 
 import { useEffect, useState, useTransition } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSearchParams } from "next/navigation";
 import { motion, useReducedMotion } from "framer-motion";
 import { z } from "zod";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
-import { Select } from "../ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
 import { Button } from "../ui/button";
 import { Card } from "../ui/card";
 import { submitLoan } from "../../actions/submitLoan";
@@ -89,9 +89,9 @@ export default function FormSection() {
   return (
     <section id="form" className="space-y-6">
       <div className="space-y-2">
-        <p className="text-sm font-semibold uppercase tracking-wide text-emerald-800">Formulir</p>
-        <h2 className="font-heading text-3xl text-emerald-900">Ajukan dalam 1 Menit</h2>
-        <p className="text-slate-600">
+        <p className="text-sm font-semibold uppercase tracking-wide text-primary">Formulir</p>
+        <h2 className="font-heading text-3xl text-foreground">Ajukan dalam 1 Menit</h2>
+        <p className="text-muted-foreground">
           Isi data singkat. Data disimpan aman di Supabase, lalu Anda diarahkan ke WhatsApp untuk
           verifikasi cepat.
         </p>
@@ -109,7 +109,7 @@ export default function FormSection() {
               <Label htmlFor="nama">Nama Lengkap</Label>
               <Input id="nama" placeholder="Nama sesuai KTP" {...form.register("nama")} />
               {form.formState.errors.nama && (
-                <p className="text-xs text-red-600">{form.formState.errors.nama.message}</p>
+                <p className="text-xs text-destructive">{form.formState.errors.nama.message}</p>
               )}
             </div>
 
@@ -122,24 +122,38 @@ export default function FormSection() {
                 {...form.register("phone")}
               />
               {form.formState.errors.phone && (
-                <p className="text-xs text-red-600">{form.formState.errors.phone.message}</p>
+                <p className="text-xs text-destructive">{form.formState.errors.phone.message}</p>
               )}
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="tipe">Jenis Jaminan</Label>
-              <Select id="tipe" {...form.register("tipe")}>
-                <option value="motor">BPKB Motor</option>
-                <option value="mobil">BPKB Mobil</option>
-                <option value="sertifikat">Sertifikat Rumah/Tanah</option>
-              </Select>
-            </div>
+              <Controller
+                name="tipe"
+                control={form.control}
+                render={({ field }) => (
+                  <Select value={field.value} onValueChange={field.onChange}>
+                    <SelectTrigger id="tipe" onBlur={field.onBlur} aria-label="Jenis Jaminan">
+                      <SelectValue placeholder="Pilih jenis jaminan" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="motor">BPKB Motor</SelectItem>
+                      <SelectItem value="mobil">BPKB Mobil</SelectItem>
+                      <SelectItem value="sertifikat">Sertifikat Rumah/Tanah</SelectItem>
+                    </SelectContent>
+                  </Select>
+                )}
+                />
+                {form.formState.errors.tipe && (
+                  <p className="text-xs text-destructive">{form.formState.errors.tipe.message}</p>
+                )}
+              </div>
 
             <div className="space-y-2">
               <Label htmlFor="unit">Merk / Tahun Kendaraan atau Detail Aset</Label>
               <Input id="unit" placeholder="Contoh: Toyota Avanza 2019" {...form.register("unit")} />
               {form.formState.errors.unit && (
-                <p className="text-xs text-red-600">{form.formState.errors.unit.message}</p>
+                <p className="text-xs text-destructive">{form.formState.errors.unit.message}</p>
               )}
             </div>
 
@@ -153,7 +167,7 @@ export default function FormSection() {
                 {...form.register("nominal", { valueAsNumber: true })}
               />
               {form.formState.errors.nominal && (
-                <p className="text-xs text-red-600">{form.formState.errors.nominal.message}</p>
+                <p className="text-xs text-destructive">{form.formState.errors.nominal.message}</p>
               )}
             </div>
 
@@ -162,11 +176,11 @@ export default function FormSection() {
               <Input id="source" placeholder="landing / ads" {...form.register("source")} />
             </div>
 
-            <div className="md:col-span-2 rounded-xl bg-emerald-900/5 p-4">
-              <label className="flex items-start gap-3 text-sm text-slate-700">
+            <div className="md:col-span-2 rounded-xl bg-primary/10 p-4">
+              <label className="flex items-start gap-3 text-sm text-muted-foreground">
                 <input
                   type="checkbox"
-                  className="mt-1 h-4 w-4 rounded border-emerald-900/30 text-emerald-800 focus:ring-emerald-800"
+                  className="mt-1 h-4 w-4 rounded border border-input accent-primary focus:ring-2 focus:ring-primary focus:ring-offset-1 focus:ring-offset-background"
                   {...form.register("consent")}
                 />
                 <span>
@@ -175,12 +189,12 @@ export default function FormSection() {
                 </span>
               </label>
               {form.formState.errors.consent && (
-                <p className="mt-1 text-xs text-red-600">{form.formState.errors.consent.message}</p>
+                <p className="mt-1 text-xs text-destructive">{form.formState.errors.consent.message}</p>
               )}
             </div>
 
             <div className="md:col-span-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <div className="text-xs text-slate-500">
+              <div className="text-xs text-muted-foreground">
                 Dengan klik kirim, data dicatat di Supabase sebagai backup jika chat tidak terkirim. Estimasi
                 tidak mengikat, verifikasi diperlukan.
               </div>
@@ -195,7 +209,7 @@ export default function FormSection() {
             </div>
           </form>
 
-          {status && <p className="mt-4 text-sm text-emerald-800">{status}</p>}
+          {status && <p className="mt-4 text-sm text-primary">{status}</p>}
         </Card>
       </motion.div>
     </section>

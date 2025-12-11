@@ -12,7 +12,7 @@ export function Slider({ className, onValueChange, ...props }: SliderProps) {
     <input
       type="range"
       className={cn(
-        "w-full accent-emerald-800 h-2 rounded-full bg-emerald-900/10 cursor-pointer",
+        "w-full accent-primary h-2 rounded-full bg-muted cursor-pointer",
         className
       )}
       onChange={(e) => onValueChange?.(Number(e.target.value))}

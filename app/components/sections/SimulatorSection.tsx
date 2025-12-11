@@ -29,9 +29,9 @@ export default function SimulatorSection() {
   return (
     <section id="simulator" className="space-y-6">
       <div className="space-y-2">
-        <p className="text-sm font-semibold uppercase tracking-wide text-emerald-800">Simulasi</p>
-        <h2 className="font-heading text-3xl text-emerald-900">Simulasi Pinjaman Transparan</h2>
-        <p className="text-slate-600">
+        <p className="text-sm font-semibold uppercase tracking-wide text-primary">Simulasi</p>
+        <h2 className="font-heading text-3xl text-foreground">Simulasi Pinjaman Transparan</h2>
+        <p className="text-muted-foreground">
           Atur nominal dan tenor untuk melihat estimasi angsuran. Angka bersifat indikatif,
           perhitungan final setelah verifikasi aset.
         </p>
@@ -46,7 +46,7 @@ export default function SimulatorSection() {
         <Card className="p-6 gradient-card">
           <div className="space-y-6">
             <div>
-              <div className="flex items-center justify-between text-sm font-semibold text-emerald-900">
+              <div className="flex items-center justify-between text-sm font-semibold text-foreground">
                 <span>Nominal Pinjaman</span>
                 <span>{formatCurrency(amount)}</span>
               </div>
@@ -57,37 +57,37 @@ export default function SimulatorSection() {
                 value={amount}
                 onValueChange={setAmount}
               />
-              <div className="mt-1 flex justify-between text-xs text-slate-500">
+              <div className="mt-1 flex justify-between text-xs text-muted-foreground">
                 <span>{formatCurrency(MIN_AMOUNT)}</span>
                 <span>{formatCurrency(MAX_AMOUNT)}</span>
               </div>
             </div>
 
             <div>
-              <div className="flex items-center justify-between text-sm font-semibold text-emerald-900">
+              <div className="flex items-center justify-between text-sm font-semibold text-foreground">
                 <span>Tenor (bulan)</span>
                 <span>{tenor} bulan</span>
               </div>
               <Slider min={MIN_TENOR} max={MAX_TENOR} step={1} value={tenor} onValueChange={setTenor} />
-              <div className="mt-1 flex justify-between text-xs text-slate-500">
+              <div className="mt-1 flex justify-between text-xs text-muted-foreground">
                 <span>{MIN_TENOR} bln</span>
                 <span>{MAX_TENOR} bln</span>
               </div>
             </div>
 
-            <div className="grid gap-3 rounded-2xl bg-white/80 p-4 shadow-sm sm:grid-cols-2">
+            <div className="grid gap-3 rounded-2xl bg-card/80 p-4 shadow-sm border border-border/70 sm:grid-cols-2">
               <div>
-                <p className="text-xs uppercase tracking-wide text-slate-500">Estimasi Angsuran</p>
-                <p className="text-2xl font-bold text-emerald-900">{formatCurrency(monthlyInstallment)}</p>
+                <p className="text-xs uppercase tracking-wide text-muted-foreground">Estimasi Angsuran</p>
+                <p className="text-2xl font-bold text-primary">{formatCurrency(monthlyInstallment)}</p>
               </div>
-              <div className="text-sm text-slate-600">
+              <div className="text-sm text-muted-foreground">
                 <p>Bunga flat: 0.9% / bulan</p>
                 <p>Biaya admin bulanan: {formatCurrency(DEFAULT_ADMIN_MONTHLY)}</p>
                 <p>Tenor: {formatNumber(tenor)} bulan</p>
               </div>
             </div>
 
-            <p className="text-xs text-slate-500">
+            <p className="text-xs text-muted-foreground">
               *Estimasi tidak mengikat. Biaya dapat berbeda sesuai kondisi aset dan lokasi. Untuk perhitungan
               akhir, lengkapi formulir pengajuan.
             </p>
