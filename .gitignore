@@ -1,0 +1,25 @@
+# Node
+node_modules
+.next
+.turbo
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Env
+.env
+.env.local
+.env.production
+.env.development
+
+# Misc
+.DS_Store
+*.log
+dist
+coverage
