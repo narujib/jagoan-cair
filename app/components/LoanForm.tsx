@@ -13,6 +13,7 @@ import { submitLoan } from "../actions/submitLoan";
 import { leadSchema } from "../lib/validation";
 import { formatCurrency } from "../lib/utils";
 import { trackEvent } from "../lib/analytics";
+import { contact } from "../config/contact";
 
 const formSchema = leadSchema;
 type FormValues = z.infer<typeof formSchema>;
@@ -56,7 +57,7 @@ export default function LoanForm({ defaultType = "mobil", onSubmitted }: LoanFor
 
   async function onSubmit(values: FormValues) {
     setStatus(null);
-    const adminPhone = process.env.NEXT_PUBLIC_WA_NUMBER || "6281234567890";
+    const adminPhone = contact.whatsapp.number;
     const message =
       `Halo Admin, saya mau ajukan pinjaman.\n\n` +
       `Nama: ${values.nama}\n` +
@@ -190,7 +191,7 @@ export default function LoanForm({ defaultType = "mobil", onSubmitted }: LoanFor
           <Button type="submit" size="lg" disabled={isPending || !form.formState.isValid}>
             {isPending ? "Mengirim..." : "Kirim via WhatsApp"}
           </Button>
-          <Button variant="ghost" size="lg" asChild href="tel:+6281234567890">
+          <Button variant="ghost" size="lg" asChild href={contact.phone.tel}>
             Hubungi via Telepon
           </Button>
         </div>

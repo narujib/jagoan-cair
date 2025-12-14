@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Card } from "../ui/card";
 import { FileText, PhoneCall, ClipboardCheck, Wallet } from "lucide-react";
+import { contact, whatsappLinkWithMessage } from "../../config/contact";
 
 const steps = [
   {
@@ -144,15 +145,19 @@ export default function ProcessFAQ() {
           <div className="rounded-2xl bg-primary/10 p-4 text-sm text-foreground">
             Butuh jawaban cepat?{" "}
             <a
-              href="tel:+6281234567890"
+              href={contact.phone.tel}
               className="font-semibold text-primary underline"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Hubungi kami
             </a>{" "}
             atau klik{" "}
             <a
-              href="https://wa.me/6281234567890"
+              href={whatsappLinkWithMessage()}
               className="font-semibold text-primary underline"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               WhatsApp
             </a>

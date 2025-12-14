@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Button } from "../ui/button";
-import { cn } from "../../lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "../ui/button";
+import { cn } from "../../lib/utils";
+import { contact } from "../../config/contact";
 
 const links = [
   { href: "#simulator", label: "Simulasi" },
@@ -56,11 +57,11 @@ export default function Navbar() {
 
           <div className="hidden items-center gap-4 md:flex">
             <a
-              href="tel:+6281234567890"
+              href={contact.phone.tel}
               onClick={handleNavigate}
               className="text-sm font-semibold text-primary transition hover:text-primary/80"
             >
-              +62 812-3456-7890
+              {contact.phone.display}
             </a>
             <Button
               size="sm"
@@ -103,11 +104,11 @@ export default function Navbar() {
           </nav>
           <div className="flex flex-col gap-2">
             <a
-              href="tel:+6281234567890"
+              href={contact.phone.tel}
               onClick={handleNavigate}
               className="text-sm font-semibold text-primary transition hover:text-primary/80"
             >
-              +62 812-3456-7890
+              {contact.phone.display}
             </a>
             <Button
               size="sm"

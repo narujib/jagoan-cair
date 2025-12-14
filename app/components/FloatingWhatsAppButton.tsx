@@ -2,15 +2,11 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import WhatsAppIcon from "./icons/WhatsAppIcon";
-
-const phoneNumber = "6281234567890";
-const message = encodeURIComponent(
-  "Halo Jagoan Cair, saya ingin konsultasi pembiayaan."
-);
-const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+import { contact, whatsappLinkWithMessage } from "../config/contact";
 
 export default function FloatingWhatsAppButton() {
   const reduceMotion = useReducedMotion();
+  const whatsappUrl = whatsappLinkWithMessage();
 
   return (
     <motion.a
