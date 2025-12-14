@@ -201,10 +201,16 @@ export default function FinancingSection() {
       ? "Pembiayaan Berjamin"
       : "Pembiayaan Lainnya"
     : "";
+  const formGroupLabel = formProduct
+    ? formProduct.group === "berjamin"
+      ? "Pembiayaan Berjamin"
+      : "Pembiayaan Lainnya"
+    : "";
   const DetailIcon = detailProduct?.icon;
   const plafonStat = detailProduct?.stats.find((s) => s.label === "Plafon");
   const tenorStat = detailProduct?.stats.find((s) => s.label === "Tenor");
   const bungaStat = detailProduct?.stats.find((s) => s.label === "Bunga");
+  const FormIcon = formProduct?.icon;
 
   return (
     <section id="pembiayaan" className="space-y-8 scroll-mt-28">
@@ -405,12 +411,67 @@ export default function FinancingSection() {
         title={
           formProduct ? `Ajukan ${formProduct.title}` : "Ajukan Pembiayaan"
         }
-        description="Isi data singkat, lalu kami arahkan ke WhatsApp untuk verifikasi cepat."
+        description={
+          formProduct
+            ? `Ajukan ${formProduct.title} — data singkat diarahkan ke WhatsApp untuk verifikasi cepat.`
+            : "Isi data singkat, lalu kami arahkan ke WhatsApp untuk verifikasi cepat."
+        }
         className="max-w-4xl"
       >
-        <div className="rounded-2xl border border-border/70 bg-muted/40 p-4 text-xs text-muted-foreground">
-          Isi sesuai dokumen. Kami akan menyesuaikan skema sesuai aset{" "}
-          {formProduct?.title.toLowerCase() ?? "Anda"}.
+        {formProduct ? (
+          <div className="rounded-2xl border border-primary/20 bg-primary/5 p-4 text-sm text-foreground shadow-sm">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex items-start gap-3">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground ring-4 ring-primary/15">
+                  {FormIcon ? <FormIcon size={22} strokeWidth={1.6} /> : null}
+                </div>
+                <div>
+                  <p className="text-[11px] font-semibold uppercase tracking-wide text-primary">
+                    {formGroupLabel}
+                  </p>
+                  <p className="text-lg font-semibold text-foreground">
+                    {formProduct.title}
+                  </p>
+                  <p className="text-xs text-muted-foreground">
+                    {formProduct.caption}
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-wrap gap-2 text-[11px] font-semibold uppercase tracking-wide text-primary">
+                {formProduct.stats.map((stat) => (
+                  <span
+                    key={stat.label}
+                    className="rounded-full border border-primary/30 bg-white/80 px-3 py-1 text-primary shadow-sm"
+                  >
+                    {stat.label}: {stat.value}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="mt-3 grid gap-2 text-xs text-muted-foreground sm:grid-cols-2">
+              {formProduct.requirements.slice(0, 2).map((req) => (
+                <div
+                  key={req}
+                  className="flex items-start gap-2 rounded-xl border border-primary/15 bg-white/70 px-3 py-2 shadow-inner"
+                >
+                  <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                  <span className="text-foreground">{req}</span>
+                </div>
+              ))}
+              <div className="flex items-start gap-2 rounded-xl border border-primary/15 bg-white/70 px-3 py-2 shadow-inner">
+                <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                <span className="text-foreground">
+                  Data dikirim ke tim kami untuk appraisal {formProduct.title.toLowerCase()} dan
+                  penawaran cepat via WhatsApp.
+                </span>
+              </div>
+            </div>
+          </div>
+        ) : null}
+        <div className="mt-3 rounded-2xl border border-border/70 bg-muted/40 p-4 text-xs text-muted-foreground">
+          Isi sesuai dokumen. Kami menyesuaikan skema dengan aset{" "}
+          {formProduct?.title.toLowerCase() ?? "Anda"}. Setelah submit, Anda
+          akan diarahkan ke WhatsApp untuk konfirmasi.
         </div>
         <div className="mt-4">
           <LoanForm
