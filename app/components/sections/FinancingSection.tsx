@@ -40,7 +40,7 @@ const products: FinancingProduct[] = [
     title: "BPKB Mobil",
     caption: "Limit besar, tenor panjang",
     description:
-      "Pendanaan BPKB mobil plafon hingga Rp1 miliar, tenor 12-60 bulan, tanpa biaya admin bulanan.",
+      "Cair Cepat untuk Kebutuhan Mendesak. Dapatkan pencairan dana tunai hingga 95% dari nilai kendaraan Anda.",
     badge: "Cair s/d 90%*",
     icon: Car,
     items: [
@@ -68,7 +68,7 @@ const products: FinancingProduct[] = [
     stats: [
       { label: "Plafon", value: "Rp100jt - 1M" },
       { label: "Tenor", value: "12-60 bln" },
-      { label: "Bunga", value: "Flat ~0.87% - 1.10%/bln" },
+      { label: "Bunga", value: "Mulai dari 0.9%/bln" },
     ],
     defaultType: "mobil",
     detail:
@@ -80,7 +80,7 @@ const products: FinancingProduct[] = [
     title: "BPKB Motor",
     caption: "Ringkas & cepat cair",
     description:
-      "Plafon Rp5-15 juta, tenor 6-18 bulan, tanpa biaya admin bulanan.",
+      "Solusi Dana Instan, Proses Simpel. Ajukan pinjaman dengan proses cepat dan persyaratan yang sederhana.",
     badge: "Survey kilat",
     icon: Bike,
     items: [
@@ -107,7 +107,7 @@ const products: FinancingProduct[] = [
     stats: [
       { label: "Plafon", value: "Rp5jt - 15jt" },
       { label: "Tenor", value: "6-18 bln" },
-      { label: "Bunga", value: "Flat ~3.3% - 7.9%/bln" },
+      { label: "Bunga", value: "Mulai dari 0.9%/bln" },
     ],
     defaultType: "motor",
     detail:
@@ -119,7 +119,7 @@ const products: FinancingProduct[] = [
     title: "Sertifikat",
     caption: "Properti/SHM/SHGB",
     description:
-      "Pendanaan sertifikat SHM/KMI/KMS Rp50-500 juta, tenor 12-48 bulan, tanpa biaya admin bulanan.",
+      "Modal Besar, Cicilan Ringan & Panjang. Dapatkan fasilitas pembiayaan dengan nilai pencairan tertinggi.",
     badge: "Prioritas lokasi",
     icon: ScrollText,
     items: [
@@ -146,7 +146,7 @@ const products: FinancingProduct[] = [
     stats: [
       { label: "Plafon", value: "Rp50jt - 500jt" },
       { label: "Tenor", value: "12-48 bln" },
-      { label: "Bunga", value: "Flat ~1.45% - 1.75%/bln" },
+      { label: "Bunga", value: "Mulai dari 0.9%/bln" },
     ],
     defaultType: "sertifikat",
     detail:
@@ -158,7 +158,7 @@ const products: FinancingProduct[] = [
     title: "Alat Berat & Industri",
     caption: "Pembiayaan proyek",
     description:
-      "Skema custom untuk alat berat, mesin produksi, atau kebutuhan industri berskala besar (di luar kalkulator).",
+      "Dukungan Modal untuk Proyek Skala Besar dan Peningkatan Kapasitas Produksi.",
     badge: "Custom plan",
     icon: Factory,
     items: [
@@ -207,20 +207,25 @@ export default function FinancingSection() {
   const bungaStat = detailProduct?.stats.find((s) => s.label === "Bunga");
 
   return (
-    <section
-      id="pembiayaan"
-      className="space-y-8 scroll-mt-[18rem] md:scroll-mt-28"
-    >
+    <section id="pembiayaan" className="space-y-8 scroll-mt-28">
+      <div
+        className="pointer-events-none absolute -left-24 top-12 h-52 w-52 rounded-full bg-primary/10 blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -right-28 bottom-[-80px] h-64 w-64 rounded-full bg-primary/8 blur-3xl"
+        aria-hidden
+      />
       <div className="space-y-2">
         <p className="text-sm font-semibold uppercase tracking-wide text-primary">
-          Pembiayaan
+          Layanan
         </p>
         <h2 className="font-heading text-3xl text-foreground">
-          Pilihan Pembiayaan
+          Layanan Pembiayaan
         </h2>
         <p className="text-muted-foreground">
-          Skema angsuran transparan tanpa biaya admin bulanan. Pilih yang
-          sesuai, lihat detail di modal, lalu ajukan langsung.
+          Skema angsuran transparan. Pilih yang sesuai, lihat detail di modal,
+          lalu ajukan langsung.
         </p>
       </div>
 
@@ -437,12 +442,19 @@ function ProductCard({
     >
       <Card
         className={cn(
-          "relative flex h-full flex-col gap-4 overflow-hidden p-5 shadow-sm border border-border/80",
-          "bg-card/95"
+          "relative flex h-full flex-col gap-4 overflow-hidden rounded-3xl border border-primary/15 bg-white/90 p-5 shadow-[0_16px_70px_rgba(18,36,120,0.12)] backdrop-blur",
+          "transition hover:-translate-y-1 hover:shadow-[0_20px_80px_rgba(18,36,120,0.18)]"
         )}
       >
+        <div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/8 via-white/80 to-primary/5"
+          aria-hidden
+        />
+        <div className="absolute right-4 top-4 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-primary">
+          {product.badge}
+        </div>
         <div className="flex items-start gap-3">
-          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/20">
+          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-lg shadow-primary/30 ring-4 ring-primary/15">
             <Icon size={26} strokeWidth={1.6} />
           </div>
           <div className="flex-1">
@@ -467,7 +479,7 @@ function ProductCard({
           {product.stats.map((stat) => (
             <div
               key={stat.label}
-              className="rounded-xl border border-border/70 bg-muted/40 px-2 py-2 text-center"
+              className="rounded-xl border border-primary/15 bg-white/80 px-2 py-2 text-center shadow-sm"
             >
               <p className="text-[10px] text-muted-foreground uppercase tracking-wide">
                 {stat.label}

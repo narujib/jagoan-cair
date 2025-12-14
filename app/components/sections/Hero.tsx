@@ -11,16 +11,31 @@ export default function Hero() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section id="hero" className="relative overflow-hidden pb-12 pt-10">
-      <div className="section grid items-center gap-10 lg:grid-cols-2">
+    <section
+      id="hero"
+      className="relative overflow-hidden pb-16 pt-28 sm:pt-32"
+    >
+      <div
+        className="pointer-events-none absolute inset-x-[-160px] top-[-120px] h-64 bg-gradient-to-br from-primary/15 via-transparent to-primary/5 blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -left-24 top-12 h-72 w-72 rounded-full bg-primary/12 blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -right-28 top-20 h-80 w-80 rounded-full bg-primary/10 blur-3xl"
+        aria-hidden
+      />
+      <div className="section relative z-10 grid items-center gap-10 lg:grid-cols-2">
         <div className="space-y-6">
           <motion.div
             initial={{ opacity: 0, y: reduceMotion ? 0 : 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 rounded-full bg-accent px-3 py-2 text-xs font-semibold text-primary shadow-sm"
+            className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-primary shadow-sm"
           >
-            <Sparkles size={14} /> Premium Lending Service
+            <Sparkles size={14} /> Lending Service
           </motion.div>
 
           <motion.h1
@@ -29,7 +44,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.05 }}
             className="font-heading text-4xl leading-tight text-foreground sm:text-5xl"
           >
-            Solusi Dana Tunai Premium.
+            Solusi Cepat Dana Tunai.
             <br />
             Aset Aman, Cair Instan.
           </motion.h1>
@@ -40,8 +55,8 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="max-w-xl text-lg text-muted-foreground"
           >
-            Pencairan hingga 90% nilai taksiran. Tanpa BI checking, bunga
-            kompetitif, dan proses verifikasi kurang dari 1 jam.
+            Pencairan hingga 90% nilai taksiran. Skema pembiayaan fleksibel
+            dengan proses cepat dan aman.
           </motion.p>
 
           <motion.div
@@ -65,14 +80,34 @@ export default function Hero() {
             initial={{ opacity: 0, y: reduceMotion ? 0 : 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-wrap items-center gap-4 text-sm font-semibold text-primary"
+            className="grid gap-4 text-sm sm:grid-cols-3"
           >
-            <span className="inline-flex items-center gap-2">
-              <ShieldCheck size={16} /> Aman
-            </span>
-            <span className="inline-flex items-center gap-2">
-              <Clock3 size={16} /> Cair Cepat*
-            </span>
+            <div className="flex items-start gap-3">
+              <ShieldCheck className="h-5 w-5 shrink-0 text-primary" />
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wide text-primary">
+                  Aman
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <Clock3 className="h-5 w-5 shrink-0 text-primary" />
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wide text-primary">
+                  Cair Cepat
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <Clock3 className="h-5 w-5 shrink-0 text-primary" />
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wide text-primary">
+                  Proses Mudah
+                </p>
+              </div>
+            </div>
           </motion.div>
         </div>
 

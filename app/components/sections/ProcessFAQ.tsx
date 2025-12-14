@@ -30,19 +30,19 @@ const steps = [
 const faqs = [
   {
     q: "Apakah perlu BI Checking?",
-    a: "Tidak, penilaian berdasarkan aset dan kelayakan dokumen.",
+    a: "Ya, pengajuan tetap melalui pengecekan data kredit. Namun, tidak perlu riwayat kredit yang sempurna — selama dokumen dan jaminan memenuhi syarat, pengajuan tetap bisa diproses dengan cepat.",
   },
   {
     q: "Berapa lama proses cair?",
-    a: "Umumnya kurang dari 1 jam setelah dokumen dinyatakan lengkap.",
+    a: "Proses cepat dan instan. Rata-rata pencairan hanya ±1 hari kerja setelah data lengkap dan disetujui. Dengan dokumen lengkap, dana dapat segera dicairkan.",
   },
   {
-    q: "Dokumen apa saja?",
-    a: "KTP, BPKB/sertifikat, STNK/PBB, serta foto aset jika ada.",
+    q: "Dokumen apa saja yang dibutuhkan?",
+    a: "Persyaratan dokumen tercantum pada deskripsi masing-masing produk pembiayaan. Silakan menyesuaikan dengan jenis pembiayaan yang diajukan.",
   },
   {
     q: "Apakah unit harus atas nama sendiri?",
-    a: "Bisa atas nama keluarga inti, sertakan bukti hubungan (KK/akta).",
+    a: "Tidak harus. Pengajuan pembiayaan dapat menggunakan unit atas nama pihak lain, selama didukung dengan dokumen pendukung yang sah dan persetujuan dari pemilik unit sesuai ketentuan yang berlaku.",
   },
 ];
 
@@ -50,7 +50,15 @@ export default function ProcessFAQ() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section id="faq" className="space-y-8 scroll-mt-[18rem] md:scroll-mt-28">
+    <section id="faq" className="space-y-8 scroll-mt-28">
+      <div
+        className="pointer-events-none absolute -left-24 top-16 h-48 w-48 rounded-full bg-primary/10 blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -right-28 bottom-[-60px] h-56 w-56 rounded-full bg-primary/8 blur-3xl"
+        aria-hidden
+      />
       <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr]">
         <div className="space-y-3">
           <p className="text-sm font-semibold uppercase tracking-wide text-primary">
@@ -114,7 +122,7 @@ export default function ProcessFAQ() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: idx * 0.04 }}
               >
-                <Card className="p-4">
+                <Card className="border-primary/15 bg-white/90 p-4 shadow-[0_10px_40px_rgba(18,36,120,0.08)]">
                   <p className="font-semibold text-foreground">{faq.q}</p>
                   <p className="mt-1 text-sm text-muted-foreground">{faq.a}</p>
                 </Card>

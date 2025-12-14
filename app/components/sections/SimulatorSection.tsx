@@ -408,10 +408,15 @@ export default function SimulatorSection() {
   const rateDisplay = formatRate(derivedRate);
 
   return (
-    <section
-      id="simulator"
-      className="space-y-6 scroll-mt-[18rem] md:scroll-mt-28"
-    >
+    <section id="simulator" className="space-y-6 scroll-mt-28">
+      <div
+        className="pointer-events-none absolute -left-24 top-10 h-48 w-48 rounded-full bg-primary/12 blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -right-28 bottom-[-60px] h-60 w-60 rounded-full bg-primary/8 blur-3xl"
+        aria-hidden
+      />
       <div className="space-y-2">
         <p className="text-sm font-semibold uppercase tracking-wide text-primary">
           Simulasi
@@ -432,7 +437,9 @@ export default function SimulatorSection() {
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.6 }}
       >
-        <Card className="p-6 gradient-card border border-border/70 shadow-xl">
+        <Card className="relative overflow-hidden border border-primary/15 bg-white/90 p-6 shadow-[0_20px_80px_rgba(18,36,120,0.12)]">
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/8 via-white to-primary/5" />
+          <div className="pointer-events-none absolute left-8 top-0 h-1 w-24 rounded-full bg-primary/40" />
           <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
             <div className="space-y-1">
               <h3 className="text-2xl font-bold text-foreground">
@@ -456,11 +463,11 @@ export default function SimulatorSection() {
           </div>
 
           <div className="mt-3 flex flex-wrap gap-2 text-xs font-semibold text-muted-foreground">
-            <span className="rounded-full bg-background/70 px-3 py-1 text-foreground shadow-sm">
+            <span className="rounded-full border border-primary/15 bg-white/80 px-3 py-1 text-foreground shadow-sm">
               Plafon {formatCurrency(config.minAmount)} -{" "}
               {formatCurrency(config.maxAmount)}
             </span>
-            <span className="rounded-full bg-background/70 px-3 py-1 text-foreground shadow-sm">
+            <span className="rounded-full border border-primary/15 bg-white/80 px-3 py-1 text-foreground shadow-sm">
               Tenor {formatNumber(minTenor)} - {formatNumber(maxTenor)} bln
             </span>
           </div>
@@ -531,9 +538,6 @@ export default function SimulatorSection() {
                     Estimasi tanpa biaya admin
                   </p>
                 </div>
-                <span className="rounded-full bg-primary/15 px-3 py-1 text-xs font-semibold text-primary">
-                  Bunga flat {rateDisplay}%/bln
-                </span>
               </div>
 
               <div className="grid gap-3 sm:grid-cols-2">
