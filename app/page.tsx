@@ -7,6 +7,7 @@ import ProcessFAQ from "./components/sections/ProcessFAQ";
 import Testimonials from "./components/sections/Testimonials";
 import Footer from "./components/sections/Footer";
 import SeoSchema from "./components/SeoSchema";
+import FloatingWhatsAppButton from "./components/FloatingWhatsAppButton";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
         <ProcessFAQ />
         <Testimonials />
       </div>
+      <FloatingWhatsAppButton />
       <Footer />
     </main>
   );

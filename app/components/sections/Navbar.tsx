@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, Phone, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "../ui/button";
 import { cn } from "../../lib/utils";
 import Image from "next/image";
@@ -54,19 +54,14 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <div className="hidden items-center gap-3 md:flex">
-            <Button
-              variant="ghost"
-              size="sm"
-              asChild
+          <div className="hidden items-center gap-4 md:flex">
+            <a
               href="tel:+6281234567890"
               onClick={handleNavigate}
+              className="text-sm font-semibold text-primary transition hover:text-primary/80"
             >
-              <span className="flex items-center gap-2">
-                <Phone size={16} />
-                Telepon
-              </span>
-            </Button>
+              +62 812-3456-7890
+            </a>
             <Button
               size="sm"
               asChild
@@ -106,20 +101,14 @@ export default function Navbar() {
               </a>
             ))}
           </nav>
-          <div className="flex gap-2">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="w-full"
-              asChild
+          <div className="flex flex-col gap-2">
+            <a
               href="tel:+6281234567890"
               onClick={handleNavigate}
+              className="text-sm font-semibold text-primary transition hover:text-primary/80"
             >
-              <span className="flex items-center justify-center gap-2">
-                <Phone size={16} />
-                Telepon
-              </span>
-            </Button>
+              +62 812-3456-7890
+            </a>
             <Button
               size="sm"
               className="w-full"
