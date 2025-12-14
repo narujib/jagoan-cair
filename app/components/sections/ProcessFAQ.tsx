@@ -59,6 +59,18 @@ export default function ProcessFAQ() {
         className="pointer-events-none absolute -right-28 bottom-[-60px] h-56 w-56 rounded-full bg-primary/8 blur-3xl"
         aria-hidden
       />
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/4 h-72 w-72 rounded-full bg-gradient-to-bl from-primary/11 to-accent/9 blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute right-1/4 top-32 h-52 w-52 rounded-full bg-primary/9 blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute left-20 bottom-16 h-60 w-60 rounded-full bg-accent/11 blur-3xl"
+        aria-hidden
+      />
       <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr]">
         <div className="space-y-3">
           <p className="text-sm font-semibold uppercase tracking-wide text-primary">

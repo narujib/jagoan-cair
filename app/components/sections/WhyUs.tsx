@@ -96,6 +96,14 @@ export default function WhyUs() {
                   className="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary/6 via-transparent to-primary/5"
                   aria-hidden
                 />
+                <div
+                  className="pointer-events-none absolute -top-6 -right-6 h-12 w-12 rounded-full bg-primary/8 blur-lg"
+                  aria-hidden
+                />
+                <div
+                  className="pointer-events-none absolute -bottom-4 -left-4 h-10 w-10 rounded-full bg-accent/10 blur-md"
+                  aria-hidden
+                />
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-lg shadow-primary/30">
                   <Icon />
                 </div>

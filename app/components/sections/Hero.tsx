@@ -27,6 +27,18 @@ export default function Hero() {
         className="pointer-events-none absolute -right-28 top-20 h-80 w-80 rounded-full bg-primary/10 blur-3xl"
         aria-hidden
       />
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/4 h-96 w-96 rounded-full bg-gradient-to-r from-primary/8 to-accent/6 blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute bottom-0 left-0 h-64 w-64 rounded-full bg-primary/6 blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute bottom-20 right-10 h-48 w-48 rounded-full bg-accent/8 blur-3xl"
+        aria-hidden
+      />
       <div className="section relative z-10 grid items-center gap-10 lg:grid-cols-2">
         <div className="space-y-6">
           <motion.div

@@ -34,6 +34,18 @@ export default function Testimonials() {
         className="pointer-events-none absolute -right-28 bottom-[-60px] h-52 w-52 rounded-full bg-primary/8 blur-3xl"
         aria-hidden
       />
+      <div
+        className="pointer-events-none absolute left-1/3 top-1/4 h-64 w-64 rounded-full bg-gradient-to-br from-primary/9 to-accent/8 blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute right-1/4 top-24 h-48 w-48 rounded-full bg-primary/8 blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute left-16 bottom-12 h-52 w-52 rounded-full bg-accent/10 blur-3xl"
+        aria-hidden
+      />
       <div className="space-y-2">
         <p className="text-sm font-semibold uppercase tracking-wide text-primary">
           Testimoni
@@ -61,6 +73,14 @@ export default function Testimonials() {
             <Card className="relative h-full overflow-hidden border-primary/15 bg-white/90 p-5 shadow-[0_14px_50px_rgba(18,36,120,0.08)]">
               <div
                 className="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary/6 via-transparent to-primary/5"
+                aria-hidden
+              />
+              <div
+                className="pointer-events-none absolute -top-5 -right-5 h-10 w-10 rounded-full bg-primary/7 blur-lg"
+                aria-hidden
+              />
+              <div
+                className="pointer-events-none absolute -bottom-4 -left-4 h-8 w-8 rounded-full bg-accent/9 blur-md"
                 aria-hidden
               />
               <div className="flex gap-1 text-amber-400">

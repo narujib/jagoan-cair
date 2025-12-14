@@ -216,6 +216,18 @@ export default function FinancingSection() {
         className="pointer-events-none absolute -right-28 bottom-[-80px] h-64 w-64 rounded-full bg-primary/8 blur-3xl"
         aria-hidden
       />
+      <div
+        className="pointer-events-none absolute left-1/3 top-1/2 h-80 w-80 rounded-full bg-gradient-to-br from-primary/12 to-accent/8 blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute right-1/4 top-20 h-60 w-60 rounded-full bg-primary/6 blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute left-10 bottom-10 h-72 w-72 rounded-full bg-accent/10 blur-3xl"
+        aria-hidden
+      />
       <div className="space-y-2">
         <p className="text-sm font-semibold uppercase tracking-wide text-primary">
           Layanan
@@ -448,6 +460,18 @@ function ProductCard({
       >
         <div
           className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/8 via-white/80 to-primary/5"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute -top-8 -right-8 h-16 w-16 rounded-full bg-primary/10 blur-xl"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute -bottom-6 -left-6 h-12 w-12 rounded-full bg-accent/12 blur-lg"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute top-1/2 left-1/4 h-8 w-8 rounded-full bg-primary/8 blur-md"
           aria-hidden
         />
         <div className="absolute right-4 top-4 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-primary">
