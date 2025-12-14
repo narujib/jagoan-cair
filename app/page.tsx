@@ -1,10 +1,8 @@
-import { Suspense } from "react";
 import Navbar from "./components/sections/Navbar";
 import Hero from "./components/sections/Hero";
 import SimulatorSection from "./components/sections/SimulatorSection";
 import WhyUs from "./components/sections/WhyUs";
-import CollateralTabs from "./components/sections/CollateralTabs";
-import FormSection from "./components/sections/FormSection";
+import FinancingSection from "./components/sections/FinancingSection";
 import ProcessFAQ from "./components/sections/ProcessFAQ";
 import Testimonials from "./components/sections/Testimonials";
 import Footer from "./components/sections/Footer";
@@ -19,10 +17,7 @@ export default function Home() {
       <div className="section space-y-20 pb-24">
         <SimulatorSection />
         <WhyUs />
-        <CollateralTabs />
-        <Suspense fallback={null}>
-          <FormSection />
-        </Suspense>
+        <FinancingSection />
         <ProcessFAQ />
         <Testimonials />
       </div>

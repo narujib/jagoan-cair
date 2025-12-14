@@ -13,7 +13,7 @@ const lendingSchema = {
   areaServed: "Indonesia",
   interestRate: "0.9% per month",
   loanTerm: "3-36 bulan",
-  feesAndCommissionsSpecification: "Biaya admin bulanan contoh Rp150.000, tanpa biaya tersembunyi.",
+  feesAndCommissionsSpecification: "Tanpa biaya admin bulanan dan tanpa biaya tersembunyi.",
   serviceType: "Pinjaman berbasis agunan BPKB dan sertifikat",
   sameAs: [`https://wa.me/${waNumber}`]
 };

@@ -5,8 +5,7 @@ import Image from "next/image";
 import { ShieldCheck, Sparkles, Clock3 } from "lucide-react";
 import { Button } from "../ui/button";
 
-const heroImage =
-  "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1000&q=80";
+const heroImage = "/bg-hero.png";
 
 export default function Hero() {
   const reduceMotion = useReducedMotion();
@@ -51,7 +50,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.15 }}
             className="flex flex-wrap items-center gap-3"
           >
-            <Button size="lg" asChild href="#form">
+            <Button size="lg" asChild href="#pembiayaan">
               Ajukan Sekarang
             </Button>
             <Button size="lg" variant="ghost" asChild href="#simulator">
@@ -69,10 +68,10 @@ export default function Hero() {
             className="flex flex-wrap items-center gap-4 text-sm font-semibold text-primary"
           >
             <span className="inline-flex items-center gap-2">
-              <ShieldCheck size={16} /> Terdaftar & diawasi
+              <ShieldCheck size={16} /> Aman
             </span>
             <span className="inline-flex items-center gap-2">
-              <Clock3 size={16} /> Cair 1 jam*
+              <Clock3 size={16} /> Cair Cepat*
             </span>
           </motion.div>
         </div>
@@ -87,28 +86,16 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.1 }}
           className="relative"
         >
-          <div className="gradient-card relative overflow-hidden rounded-3xl p-6 shadow-soft">
-            <div className="absolute inset-0 bg-primary/8" />
-            <div className="relative aspect-square overflow-hidden rounded-2xl">
+          <div className="relative overflow-hidden rounded-3xl">
+            <div className="relative aspect-square overflow-hidden rounded-2xl bg-transparent">
               <Image
                 src={heroImage}
                 alt="Konsultan keuangan menjelaskan proses gadai BPKB"
                 fill
                 priority
-                className="object-cover"
+                className="object-contain"
                 sizes="(min-width: 1024px) 480px, 100vw"
               />
-            </div>
-            <div className="relative mt-4 grid grid-cols-3 gap-2 text-xs font-semibold text-foreground">
-              <div className="rounded-xl bg-card/80 px-3 py-2 text-center shadow-sm">
-                OJK
-              </div>
-              <div className="rounded-xl bg-card/80 px-3 py-2 text-center shadow-sm">
-                APPI
-              </div>
-              <div className="rounded-xl bg-card/80 px-3 py-2 text-center shadow-sm">
-                ISO 27001
-              </div>
             </div>
           </div>
         </motion.div>

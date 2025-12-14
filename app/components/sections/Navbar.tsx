@@ -4,12 +4,12 @@ import { useState } from "react";
 import { Menu, Phone, X } from "lucide-react";
 import { Button } from "../ui/button";
 import { cn } from "../../lib/utils";
+import Image from "next/image";
 
 const links = [
   { href: "#simulator", label: "Simulasi" },
   { href: "#why-us", label: "Keunggulan" },
-  { href: "#agunan", label: "Jenis Agunan" },
-  { href: "#form", label: "Ajukan" },
+  { href: "#pembiayaan", label: "Pembiayaan" },
   { href: "#faq", label: "FAQ" },
 ];
 
@@ -21,18 +21,15 @@ export default function Navbar() {
     <header className="sticky top-4 z-30">
       <div className="section">
         <div className="flex items-center justify-between rounded-2xl bg-card/80 px-4 py-3 shadow-soft backdrop-blur-lg border border-border/70">
-          <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-2xl bg-primary text-primary-foreground grid place-items-center font-bold">
-              JC
-            </div>
-            <div className="leading-tight">
-              <p className="font-heading text-lg text-foreground">
-                Jagoan Cair
-              </p>
-              <p className="text-xs text-muted-foreground">
-                Dana tunai premium
-              </p>
-            </div>
+          <div className="flex items-center">
+            <Image
+              src="/logo.PNG"
+              alt="Jagoan Cair"
+              height={40}
+              width={160}
+              priority
+              className="object-contain"
+            />
           </div>
 
           <nav className="hidden items-center gap-6 text-sm font-semibold text-foreground md:flex">
@@ -61,7 +58,12 @@ export default function Navbar() {
                 Telepon
               </span>
             </Button>
-            <Button size="sm" asChild href="#form" onClick={handleNavigate}>
+            <Button
+              size="sm"
+              asChild
+              href="#pembiayaan"
+              onClick={handleNavigate}
+            >
               Ajukan Sekarang
             </Button>
           </div>
@@ -113,7 +115,7 @@ export default function Navbar() {
               size="sm"
               className="w-full"
               asChild
-              href="#form"
+              href="#pembiayaan"
               onClick={handleNavigate}
             >
               Ajukan

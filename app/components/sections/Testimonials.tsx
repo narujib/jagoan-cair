@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Card } from "../ui/card";
@@ -8,18 +8,18 @@ const testimonials = [
   {
     name: "Andi, Jakarta",
     text: "Ajukan pagi, siang sudah cair. Prosesnya rapi, aset aman.",
-    rating: 5
+    rating: 5,
   },
   {
     name: "Maya, Depok",
     text: "Tim responsif, bunga jelas dari awal. Sangat membantu.",
-    rating: 5
+    rating: 5,
   },
   {
     name: "Rudi, Bekasi",
     text: "Tanpa BI checking, hanya verifikasi dokumen. Recommended.",
-    rating: 5
-  }
+    rating: 5,
+  },
 ];
 
 export default function Testimonials() {
@@ -27,9 +27,15 @@ export default function Testimonials() {
   return (
     <section className="space-y-6">
       <div className="space-y-2">
-        <p className="text-sm font-semibold uppercase tracking-wide text-primary">Testimoni</p>
-        <h2 className="font-heading text-3xl text-foreground">Dipercaya Ratusan Nasabah</h2>
-        <p className="text-muted-foreground">Cuplikan pengalaman mereka yang sudah cair bersama kami.</p>
+        <p className="text-sm font-semibold uppercase tracking-wide text-primary">
+          Testimoni
+        </p>
+        <h2 className="font-heading text-3xl text-foreground">
+          Dipercaya Ratusan Nasabah
+        </h2>
+        <p className="text-muted-foreground">
+          Cuplikan pengalaman mereka yang sudah cair bersama kami.
+        </p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-3">
@@ -48,7 +54,9 @@ export default function Testimonials() {
                 ))}
               </div>
               <p className="mt-3 text-sm text-muted-foreground">{item.text}</p>
-              <p className="mt-4 text-sm font-semibold text-foreground">{item.name}</p>
+              <p className="mt-4 text-sm font-semibold text-foreground">
+                {item.name}
+              </p>
             </Card>
           </motion.div>
         ))}

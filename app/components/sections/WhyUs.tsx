@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Shield, Percent, Timer, Award, Lock, Headphones } from "lucide-react";
@@ -8,43 +8,52 @@ const features = [
   {
     title: "Keamanan Aset",
     desc: "Aset tetap aman. Pengawasan ketat dengan standar penyimpanan terpercaya.",
-    icon: Lock
+    icon: Lock,
   },
   {
     title: "Bunga Kompetitif",
     desc: "Mulai 0.9% per bulan dengan perhitungan transparan tanpa biaya tersembunyi.",
-    icon: Percent
+    icon: Percent,
   },
   {
     title: "Proses 1 Jam",
     desc: "Verifikasi cepat. Cair dalam 1 jam setelah dokumen disetujui.",
-    icon: Timer
+    icon: Timer,
   },
   {
     title: "Legal & Terdaftar",
     desc: "Mematuhi regulasi, dilengkapi legal disclaimer dan SOP layanan.",
-    icon: Shield
+    icon: Shield,
   },
   {
     title: "Tim Konsultan",
     desc: "Konsultasi langsung dengan konsultan finansial berpengalaman.",
-    icon: Headphones
+    icon: Headphones,
   },
   {
     title: "Trusted by Clients",
     desc: "Ratusan pencairan sukses dengan rating kepuasan tinggi.",
-    icon: Award
-  }
+    icon: Award,
+  },
 ];
 
 export default function WhyUs() {
   const reduceMotion = useReducedMotion();
   return (
-    <section id="why-us" className="space-y-6">
+    <section
+      id="why-us"
+      className="space-y-6 scroll-mt-[18rem] md:scroll-mt-28"
+    >
       <div className="space-y-2">
-        <p className="text-sm font-semibold uppercase tracking-wide text-primary">Keunggulan</p>
-        <h2 className="font-heading text-3xl text-foreground">Kenapa Memilih Jagoan Cair</h2>
-        <p className="text-muted-foreground">Transparan, cepat, dan memprioritaskan keamanan aset Anda.</p>
+        <p className="text-sm font-semibold uppercase tracking-wide text-primary">
+          Keunggulan
+        </p>
+        <h2 className="font-heading text-3xl text-foreground">
+          Kenapa Memilih Jagoan Cair
+        </h2>
+        <p className="text-muted-foreground">
+          Transparan, cepat, dan memprioritaskan keamanan aset Anda.
+        </p>
       </div>
 
       <div className="grid gap-5 md:grid-cols-3">
@@ -62,8 +71,12 @@ export default function WhyUs() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                   <Icon />
                 </div>
-                <h3 className="mt-4 text-lg font-semibold text-foreground">{feature.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{feature.desc}</p>
+                <h3 className="mt-4 text-lg font-semibold text-foreground">
+                  {feature.title}
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  {feature.desc}
+                </p>
               </Card>
             </motion.div>
           );
