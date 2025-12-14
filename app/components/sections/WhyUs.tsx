@@ -1,39 +1,47 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Shield, Percent, Timer, Award, Lock, Headphones } from "lucide-react";
+import {
+  ShieldCheck,
+  TrendingDown,
+  Zap,
+  FileCheck,
+  Users,
+  Star,
+} from "lucide-react";
+
 import { Card } from "../ui/card";
 
 const features = [
   {
     title: "Keamanan Aset",
     desc: "Aset tetap aman. Pengawasan ketat dengan standar penyimpanan terpercaya.",
-    icon: Lock,
+    icon: ShieldCheck,
   },
   {
     title: "Bunga Kompetitif",
     desc: "Mulai 0.9% per bulan dengan perhitungan transparan tanpa biaya tersembunyi.",
-    icon: Percent,
+    icon: TrendingDown,
   },
   {
     title: "Proses Cepat",
     desc: "Proses verifikasi dan pencairan dana yang super cepat.",
-    icon: Timer,
+    icon: Zap,
   },
   {
     title: "Syarat Mudah",
     desc: "Persyaratan pengajuan mudah dipenuhi sesuai ketentuan.",
-    icon: Shield,
+    icon: FileCheck,
   },
   {
     title: "Tim Konsultan",
     desc: "Konsultasi langsung dengan konsultan finansial berpengalaman.",
-    icon: Headphones,
+    icon: Users,
   },
   {
     title: "Trusted by Clients",
     desc: "Ratusan pencairan sukses dengan rating kepuasan tinggi.",
-    icon: Award,
+    icon: Star,
   },
 ];
 
